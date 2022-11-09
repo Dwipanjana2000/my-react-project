@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
-import ExpenseForm from "./components/Expenses/ExpenseForm";
+import ExpenseForm from "./components/NewExpenses/ExpenseForm";
 function App() {
   const expenses = [
     {
