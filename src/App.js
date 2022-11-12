@@ -1,10 +1,12 @@
 import logo from "./logo.svg";
+import React, {useState} from 'react';
 import "./App.css";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import ExpenseForm from "./components/NewExpenses/ExpenseForm";
 import NewExpenses from "./components/NewExpenses/NewExpenses";
-function App() {
-  const expenses = [
+import Expense from "./components/Expenses/Expense"
+
+const DUMMY_EXPENSES= [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -25,6 +27,15 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+function App() {
+  const [expense,setExpense]=useState(DUMMY_EXPENSES)
+  
+  const addExpenseHandler=(expense)=>{
+    setExpense((prevExpense)=>{
+      return [expense,...prevExpense]
+    })
+  }
   return (
     <div>
       <h1>Counter</h1>
@@ -37,12 +48,14 @@ function App() {
         ))
       </div> */}
 
-      <ExpenseItem
+ 
+
+      {/* <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
         date={expenses[0].date}
       ></ExpenseItem>
-      <ExpenseItem
+      <ExpenseItem 
         title={expenses[1].title}
         amount={expenses[1].amount}
         date={expenses[1].date}
@@ -56,8 +69,9 @@ function App() {
         title={expenses[3].title}
         amount={expenses[3].amount}
         date={expenses[3].date}
-      ></ExpenseItem>
-      <NewExpenses/>
+      ></ExpenseItem> */}
+      <Expense items={expense}/>
+      <NewExpenses onAddExpense={addExpenseHandler}/>
       
     </div>
   );

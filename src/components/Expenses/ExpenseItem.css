@@ -1,4 +1,11 @@
 .expense-item {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-decoration-color: aliceblue;
+
+}
+.expense-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
